@@ -1,0 +1,909 @@
+:root {
+  --bg: #e9eee5;
+  --paper: #f5f1e6;
+  --paper-strong: #fbf7ee;
+  --ink: #203327;
+  --muted: #5d6b5f;
+  --line: rgba(32, 51, 39, 0.15);
+  --accent: #88a376;
+  --accent-strong: #486744;
+  --glow: rgba(170, 191, 150, 0.24);
+  --title-gradient: linear-gradient(120deg, #2d5838 0%, #8fab69 36%, #d0d585 62%, #214d33 100%);
+  --shadow: 0 24px 72px rgba(57, 72, 50, 0.12);
+}
+
+body[data-theme="forest"] {
+  --bg: #dfe8df;
+  --paper: #eef3eb;
+  --paper-strong: #f8fbf7;
+  --ink: #16281d;
+  --muted: #4e6254;
+  --line: rgba(22, 40, 29, 0.15);
+  --accent: #5f7d62;
+  --accent-strong: #294834;
+  --glow: rgba(94, 122, 100, 0.28);
+  --title-gradient: linear-gradient(120deg, #173625 0%, #4b704b 34%, #8db26e 64%, #112d1e 100%);
+}
+
+body[data-theme="neon"] {
+  --bg: #ecf2df;
+  --paper: #f7f8ec;
+  --paper-strong: #fcfef8;
+  --ink: #18311d;
+  --muted: #536753;
+  --line: rgba(24, 49, 29, 0.15);
+  --accent: #8fd153;
+  --accent-strong: #2a7343;
+  --glow: rgba(185, 236, 89, 0.26);
+  --title-gradient: linear-gradient(120deg, #15422a 0%, #50a04b 34%, #b4f15f 64%, #1e5f39 100%);
+}
+
+body[data-theme="vintage"] {
+  --bg: #ece5d8;
+  --paper: #f5efe3;
+  --paper-strong: #fbf6ee;
+  --ink: #342f22;
+  --muted: #6d6653;
+  --line: rgba(52, 47, 34, 0.15);
+  --accent: #8b8957;
+  --accent-strong: #605c35;
+  --glow: rgba(174, 164, 97, 0.24);
+  --title-gradient: linear-gradient(120deg, #554c25 0%, #8d8246 36%, #c8bc74 66%, #4b4221 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Manrope", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.65), transparent 34%),
+    linear-gradient(135deg, var(--glow), transparent 46%),
+    var(--bg);
+  transition: background 0.45s ease, color 0.45s ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(20, 31, 24, 0.015) 0,
+      rgba(20, 31, 24, 0.015) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 0,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+  z-index: -1;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 22px 0 42px;
+}
+
+.hero,
+.section,
+.footer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.16)),
+    var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.hero,
+.section {
+  padding: 30px;
+}
+
+.section {
+  margin-top: 24px;
+}
+
+.paper-card {
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.2)),
+    var(--paper-strong);
+}
+
+.hero {
+  isolation: isolate;
+}
+
+.hero__mist,
+.hero__scrap {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero__mist {
+  border-radius: 999px;
+  filter: blur(8px);
+  opacity: 0.74;
+}
+
+.hero__mist--left {
+  width: 260px;
+  height: 260px;
+  left: -70px;
+  top: 140px;
+  background: radial-gradient(circle, rgba(154, 180, 143, 0.7), transparent 70%);
+}
+
+.hero__mist--right {
+  width: 310px;
+  height: 310px;
+  right: -40px;
+  top: -40px;
+  background: radial-gradient(circle, rgba(205, 198, 126, 0.42), transparent 72%);
+}
+
+.hero__scrap {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hero__scrap--one {
+  width: 220px;
+  height: 130px;
+  right: 12%;
+  top: 96px;
+  transform: rotate(-10deg);
+}
+
+.hero__scrap--two {
+  width: 150px;
+  height: 96px;
+  left: 10%;
+  bottom: 54px;
+  transform: rotate(9deg);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+}
+
+.topbar__line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.hero__title-block {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.eyebrow,
+.section-heading__eyebrow,
+.controls-panel__eyebrow,
+.history-card__era,
+.literature-card__label,
+.psychology-card__label,
+.fashion-card__label,
+.project-facts dt,
+.project-tags span,
+.process-card__kicker,
+.footer__eyebrow,
+.footer__links a,
+.theme-button,
+.language-button {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.eyebrow,
+.section-heading__eyebrow,
+.controls-panel__eyebrow,
+.history-card__era,
+.literature-card__label,
+.psychology-card__label,
+.fashion-card__label,
+.project-facts dt,
+.project-tags span,
+.process-card__kicker,
+.footer__eyebrow {
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+}
+
+h1,
+h2,
+h3,
+blockquote {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  line-height: 0.98;
+}
+
+.hero-title {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 0;
+  font-size: clamp(3.4rem, 7vw, 7.4rem);
+}
+
+.hero-title__small {
+  display: block;
+}
+
+.hero-title__small--bottom {
+  margin-top: -0.16em;
+}
+
+.hero-title__green {
+  display: block;
+  font-size: clamp(6.8rem, 18vw, 13.8rem);
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 12px 28px rgba(44, 79, 50, 0.06);
+}
+
+.hero__subtitle,
+.hero__note-copy,
+.hero__controls-note,
+.section-intro,
+.project-section__lead,
+.project-facts dd,
+.project-visual__caption,
+.history-card p,
+.literature-card__body,
+.literature-card__credit,
+.psychology-card p,
+.fashion-card p,
+.process-card p,
+.footer p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.hero__subtitle {
+  max-width: 760px;
+  font-size: 1.12rem;
+}
+
+.hero__meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 820px;
+}
+
+.hero__meta-strip span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.54);
+  color: var(--accent-strong);
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.hero__layout {
+  display: grid;
+  gap: 18px;
+}
+
+.hero__note {
+  padding: 24px;
+}
+
+.hero__note {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.hero__seal {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.72), transparent 24%),
+    var(--title-gradient);
+  opacity: 0.9;
+}
+
+.hero__control-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.controls-panel {
+  display: grid;
+  gap: 12px;
+  padding: 20px 22px;
+}
+
+.controls-panel__title {
+  max-width: 18ch;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
+}
+
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.theme-button,
+.language-button {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--ink);
+  padding: 13px 18px;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.24s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-button:hover,
+.language-button:hover,
+.history-card:hover,
+.literature-card:hover,
+.psychology-card:hover,
+.fashion-card:hover {
+  transform: translateY(-4px);
+}
+
+.theme-button.is-active,
+.language-button.is-active {
+  background: var(--accent-strong);
+  color: #fbf8f1;
+  border-color: transparent;
+}
+
+.hero__controls-note {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-heading {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  white-space: nowrap;
+  font-size: clamp(2.2rem, 3.6vw, 3.8rem);
+}
+
+.section-intro {
+  max-width: 900px;
+  font-size: 1.04rem;
+}
+
+.project-section {
+  display: grid;
+  gap: 18px;
+}
+
+.project-section__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(310px, 0.9fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.project-section__content,
+.project-card {
+  min-height: 100%;
+}
+
+.project-section__content {
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  padding: 10px 4px;
+}
+
+.project-section__content h2 {
+  max-width: 12ch;
+  font-size: clamp(2.5rem, 5.2vw, 5.5rem);
+}
+
+.project-section__lead {
+  max-width: 720px;
+  font-size: 1.04rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-tags span {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.48);
+  padding: 9px 12px;
+  font-weight: 700;
+}
+
+.project-card {
+  padding: 22px;
+}
+
+.project-facts {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.project-facts div {
+  display: grid;
+  gap: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-facts div:first-child {
+  padding-top: 0;
+}
+
+.project-facts div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.project-facts dt,
+.project-facts dd {
+  margin: 0;
+}
+
+.project-facts dd {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.project-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
+}
+
+.project-visual__image {
+  min-height: 250px;
+  border-radius: 20px;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.32)),
+    url("assets/green-shade-contact-sheet.png") center/cover no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+.project-visual__caption {
+  max-width: 26ch;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.7rem, 3vw, 2.55rem);
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.history-grid,
+.literature-grid,
+.psychology-grid,
+.fashion-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.history-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.history-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 250px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0.18)),
+    var(--paper-strong);
+  transition: transform 0.24s ease;
+}
+
+.history-card__swatch {
+  width: 100%;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--shade);
+  margin: 0;
+}
+
+.history-card h3 {
+  font-size: 1.8rem;
+}
+
+.history-card__era {
+  min-height: 2.5em;
+  display: flex;
+  align-items: flex-end;
+}
+
+.literature-section,
+.psychology-section,
+.fashion-section {
+  isolation: isolate;
+}
+
+.literature-section__wash,
+.psychology-section__wash,
+.fashion-section__wash {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.literature-section__wash {
+  background:
+    radial-gradient(circle at 14% 20%, rgba(140, 171, 130, 0.18), transparent 20%),
+    radial-gradient(circle at 82% 18%, rgba(215, 207, 144, 0.16), transparent 18%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 42%),
+    linear-gradient(rgba(245, 241, 230, 0.86), rgba(245, 241, 230, 0.9));
+  opacity: 0.62;
+}
+
+.psychology-section__wash {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(140, 171, 130, 0.18), transparent 18%),
+    radial-gradient(circle at 84% 22%, rgba(206, 198, 120, 0.2), transparent 18%),
+    linear-gradient(rgba(245, 241, 230, 0.82), rgba(245, 241, 230, 0.88)),
+    url("assets/green-mood-collage.png") center/cover no-repeat;
+  opacity: 0.22;
+}
+
+.fashion-section__wash {
+  background:
+    radial-gradient(circle at 18% 16%, rgba(32, 92, 66, 0.12), transparent 18%),
+    radial-gradient(circle at 86% 24%, rgba(169, 195, 121, 0.16), transparent 16%),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.14), transparent 44%),
+    linear-gradient(rgba(245, 241, 230, 0.84), rgba(245, 241, 230, 0.9));
+  opacity: 0.68;
+}
+
+.literature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.literature-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.22)),
+    var(--paper-strong);
+  transition: transform 0.24s ease;
+}
+
+.literature-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 16px;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.literature-card h3 {
+  font-size: 2.15rem;
+}
+
+.history-card__detail,
+.literature-card__body,
+.psychology-card__detail,
+.fashion-card__detail {
+  font-size: 0.98rem;
+}
+
+.literature-card__quote {
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.52rem;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.literature-card__credit {
+  margin-top: 10px;
+  font-size: 0.94rem;
+}
+
+.psychology-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.psychology-card,
+.fashion-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.18)),
+    var(--paper-strong);
+  transition: transform 0.24s ease;
+}
+
+.psychology-card__dot {
+  width: 100%;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--shade);
+}
+
+.psychology-card h3,
+.fashion-card h3 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.fashion-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fashion-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 6.2;
+  border-radius: 16px;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.fashion-card__band {
+  width: 100%;
+  height: 22px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, var(--shade-a), var(--shade-b));
+}
+
+.process-section {
+  isolation: isolate;
+}
+
+.process-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.5;
+  background:
+    radial-gradient(circle at 20% 14%, rgba(132, 166, 111, 0.2), transparent 18%),
+    radial-gradient(circle at 74% 22%, rgba(222, 214, 149, 0.22), transparent 18%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 48%);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.process-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding: 22px;
+}
+
+.process-card h3 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.process-card__kicker {
+  margin: 0;
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 24px;
+  padding: 22px 28px;
+  text-align: center;
+}
+
+.footer--portfolio {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 34px 28px;
+}
+
+.footer--portfolio h2 {
+  max-width: 780px;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.footer__links a {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--ink);
+  padding: 11px 14px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.24s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.footer__links a:hover {
+  background: var(--accent-strong);
+  color: #fbf8f1;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 1100px) {
+  .history-grid,
+  .psychology-grid,
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-section__grid,
+  .project-visual {
+    grid-template-columns: 1fr;
+  }
+
+  .project-section__content h2 {
+    max-width: 16ch;
+  }
+
+  .project-visual__caption {
+    max-width: 100%;
+  }
+
+  .hero__control-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    width: min(100% - 20px, 100%);
+    padding-top: 12px;
+  }
+
+  .hero,
+  .section,
+  .footer {
+    border-radius: 24px;
+    padding: 22px 20px;
+  }
+
+  .topbar {
+    gap: 10px;
+    font-size: 0.64rem;
+  }
+
+  .hero__note {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title__green {
+    font-size: clamp(5.8rem, 23vw, 8.5rem);
+  }
+
+  .section-heading h2 {
+    white-space: normal;
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .history-grid,
+  .literature-grid,
+  .psychology-grid,
+  .fashion-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-section__content h2 {
+    max-width: 100%;
+  }
+
+  .project-visual__image {
+    min-height: 190px;
+  }
+
+  .hero__meta-strip {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__meta-strip span {
+    text-align: center;
+  }
+
+  .controls-row {
+    justify-content: stretch;
+  }
+
+  .theme-button,
+  .language-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

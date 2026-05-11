@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Green Archive | Portfolio Case Study</title>
+  <meta name="description" content="A portfolio case study and interactive digital exhibition exploring green through color history, literature, psychology, and fashion.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="soft" data-lang="en">
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__mist hero__mist--left"></div>
+      <div class="hero__mist hero__mist--right"></div>
+      <div class="hero__scrap hero__scrap--one"></div>
+      <div class="hero__scrap hero__scrap--two"></div>
+
+      <nav class="topbar">
+        <span data-i18n="topbar.left">Portfolio Case Study</span>
+        <span class="topbar__line"></span>
+        <span data-i18n="topbar.right">Interactive Archive</span>
+      </nav>
+
+      <div class="hero__title-block">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Color Study / Living Palette</p>
+        <h1 class="hero-title">
+          <span class="hero-title__small" data-i18n="hero.titleTop">The</span>
+          <span class="hero-title__green" data-i18n="hero.titleGreen">Green</span>
+          <span class="hero-title__small hero-title__small--bottom" data-i18n="hero.titleBottom">Archive</span>
+        </h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle">A portfolio-ready digital exhibition on color, mood, nature, and design.</p>
+        <div class="hero__meta-strip" aria-label="Project highlights">
+          <span data-i18n="hero.metaOne">Research-led visual direction</span>
+          <span data-i18n="hero.metaTwo">Bilingual editorial system</span>
+          <span data-i18n="hero.metaThree">Interactive static website</span>
+        </div>
+      </div>
+
+      <div class="hero__layout">
+        <section class="hero__note paper-card">
+          <div class="hero__seal" aria-hidden="true"></div>
+          <p class="hero__note-copy" data-i18n="hero.body">
+            Green can feel botanical, cinematic, medicinal, haunted, or quietly domestic. This archive is arranged like
+            a long exhibition table: pigment history, literary fragments, emotional studies, and fashion notes.
+          </p>
+        </section>
+
+        <div class="hero__control-strip">
+          <section class="controls-panel paper-card">
+            <p class="controls-panel__eyebrow" data-i18n="controls.themeEyebrow">Theme Switcher</p>
+            <h2 class="controls-panel__title" data-i18n="controls.themeTitle">Choose a Green Weather</h2>
+            <div class="controls-row" id="theme-controls" aria-label="Choose a green theme"></div>
+          </section>
+
+          <section class="controls-panel controls-panel--language paper-card">
+            <p class="controls-panel__eyebrow" data-i18n="controls.languageEyebrow">Language</p>
+            <h2 class="controls-panel__title" data-i18n="controls.languageTitle">English / &#20013;&#25991;</h2>
+            <div class="controls-row" id="language-controls" aria-label="Choose a language">
+              <button class="language-button is-active" data-lang="en" type="button" aria-pressed="true">English</button>
+              <button class="language-button" data-lang="zh" type="button" aria-pressed="false">&#20013;&#25991;</button>
+            </div>
+          </section>
+        </div>
+
+        <p class="hero__controls-note" data-i18n="controls.note">
+          Theme buttons recolor the page, while language buttons switch the editorial text across the whole archive.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="section project-section" id="project">
+        <div class="project-section__grid">
+          <div class="project-section__content">
+            <p class="section-heading__eyebrow" data-i18n="project.eyebrow">Project Overview</p>
+            <h2 data-i18n="project.title">Turning a color archive into an exhibition-style portfolio piece</h2>
+            <p class="project-section__lead" data-i18n="project.lead">
+              This project reframes a research archive as a complete digital case study: part editorial essay, part moodboard, part interface experiment. The result is a self-contained static website that demonstrates research synthesis, visual systems thinking, and front-end craft.
+            </p>
+            <div class="project-tags" aria-label="Project strengths">
+              <span data-i18n="project.tagOne">Color research</span>
+              <span data-i18n="project.tagTwo">Art direction</span>
+              <span data-i18n="project.tagThree">Editorial UX</span>
+              <span data-i18n="project.tagFour">Responsive web</span>
+            </div>
+          </div>
+
+          <aside class="project-card paper-card" aria-label="Project details">
+            <dl class="project-facts">
+              <div>
+                <dt data-i18n="project.roleLabel">Role</dt>
+                <dd data-i18n="project.roleValue">Research, visual direction, web design, front-end build</dd>
+              </div>
+              <div>
+                <dt data-i18n="project.toolsLabel">Codex Workflow</dt>
+                <dd data-i18n="project.toolsValue">Used Codex as a creative coding partner to translate raw archive material into a portfolio case study: shaping the information architecture, refining bilingual editorial copy, implementing the responsive HTML/CSS/JavaScript interface, and polishing the page into a deployable static exhibition.</dd>
+              </div>
+              <div>
+                <dt data-i18n="project.outputLabel">Output</dt>
+                <dd data-i18n="project.outputValue">Interactive static website / digital exhibition</dd>
+              </div>
+              <div>
+                <dt data-i18n="project.focusLabel">Focus</dt>
+                <dd data-i18n="project.focusValue">How one color can carry history, emotion, language, and style</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+
+        <div class="project-visual paper-card">
+          <div class="project-visual__image" aria-hidden="true"></div>
+          <p class="project-visual__caption" data-i18n="project.visualLabel">A contact-sheet style palette becomes the bridge between research material and portfolio presentation.</p>
+        </div>
+      </section>
+
+      <section class="section history-section" id="archive">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow" data-i18n="history.eyebrow">Origins of Eight Greens</p>
+          <h2 data-i18n="history.title">Origins of Eight Greens</h2>
+          <p class="section-intro" data-i18n="history.intro">
+            Rather than strict invention dates, this section maps how modern green names connect to pigments, interiors, print culture, botanical study, and industrial color systems.
+          </p>
+        </div>
+
+        <div class="history-grid" id="history-grid"></div>
+      </section>
+
+      <section class="section literature-section">
+        <div class="literature-section__wash" aria-hidden="true"></div>
+        <div class="section-heading">
+          <p class="section-heading__eyebrow" data-i18n="literature.eyebrow">Green and Literature</p>
+          <h2 data-i18n="literature.title">How Literature Writes Green</h2>
+          <p class="section-intro" data-i18n="literature.intro">
+            Literary green does more than describe landscape. It can mark safety, dampness, delay, ripeness, secrecy, youth, and the fragile interval before something changes.
+          </p>
+        </div>
+
+        <div class="literature-grid" id="literature-grid"></div>
+      </section>
+
+      <section class="section psychology-section">
+        <div class="psychology-section__wash" aria-hidden="true"></div>
+        <div class="section-heading">
+          <p class="section-heading__eyebrow" data-i18n="psychology.eyebrow">Green and Psychology</p>
+          <h2 data-i18n="psychology.title">How Green Shapes Feeling</h2>
+          <p class="section-intro" data-i18n="psychology.intro">
+            Environmental psychology and visual design often describe green as dual-purpose: muted greens tend to soothe, while high-intensity greens are more likely to signal action and alertness.
+          </p>
+        </div>
+
+        <div class="psychology-grid" id="psychology-grid"></div>
+      </section>
+
+      <section class="section fashion-section">
+        <div class="fashion-section__wash" aria-hidden="true"></div>
+        <div class="section-heading">
+          <p class="section-heading__eyebrow" data-i18n="fashion.eyebrow">Green and Fashion</p>
+          <h2 data-i18n="fashion.title">How Green Enters Fashion</h2>
+          <p class="section-intro" data-i18n="fashion.intro">
+            From uniforms and workwear to wellness minimalism, jewel-tone eveningwear, and neon sports styling, green keeps shifting class, function, and meaning inside fashion.
+          </p>
+        </div>
+
+        <div class="fashion-grid" id="fashion-grid"></div>
+      </section>
+
+      <section class="section process-section" id="process">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow" data-i18n="process.eyebrow">Design Method</p>
+          <h2 data-i18n="process.title">From archive material to portfolio narrative</h2>
+          <p class="section-intro" data-i18n="process.intro">
+            The page is structured to show not only what the archive contains, but how the project thinks: gathering references, shaping a visual language, and turning research into an explorable interface.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card paper-card">
+            <p class="process-card__kicker" data-i18n="process.stepOneKicker">01 / Research</p>
+            <h3 data-i18n="process.stepOneTitle">Map the meanings</h3>
+            <p data-i18n="process.stepOneBody">The archive begins by separating green into historical, literary, psychological, and fashion contexts so the color can be read as a cultural system instead of a single mood.</p>
+          </article>
+
+          <article class="process-card paper-card">
+            <p class="process-card__kicker" data-i18n="process.stepTwoKicker">02 / Visual System</p>
+            <h3 data-i18n="process.stepTwoTitle">Build an atmosphere</h3>
+            <p data-i18n="process.stepTwoBody">Paper textures, soft gradients, image cards, and theme controls turn the archive into an exhibition table rather than a flat list of facts.</p>
+          </article>
+
+          <article class="process-card paper-card">
+            <p class="process-card__kicker" data-i18n="process.stepThreeKicker">03 / Interaction</p>
+            <h3 data-i18n="process.stepThreeTitle">Make it browsable</h3>
+            <p data-i18n="process.stepThreeBody">Bilingual copy, responsive grids, and color-theme switching make the piece easy to present in a portfolio, classroom, or design review.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer footer--portfolio">
+      <p class="footer__eyebrow" data-i18n="footer.eyebrow">Portfolio Ready</p>
+      <h2 data-i18n="footer.title">A compact case study for research, visual design, and front-end storytelling.</h2>
+      <p data-i18n="footer.line">Some colors feel like a place to return to.</p>
+      <div class="footer__links" aria-label="Page links">
+        <a href="#project" data-i18n="footer.linkProject">Project Overview</a>
+        <a href="#archive" data-i18n="footer.linkArchive">Explore Archive</a>
+        <a href="#process" data-i18n="footer.linkProcess">Design Method</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
